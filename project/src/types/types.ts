@@ -1,4 +1,5 @@
 export interface Item {
+    [key: string]: number | string | string[];
     id: number;
     title: string;
     description: string;
@@ -9,5 +10,5 @@ export interface Item {
     brand: string;
     category: string;
     thumbnail: string;
-    images: Array<string>;
+    images: string[];
 }
