@@ -1,2 +1,2 @@
-import { getNamesForFilters } from './conponents/filters';
-console.log(getNamesForFilters('brand'));
+import { getNumbersForFilters } from './conponents/filters';
+console.log(getNumbersForFilters('price'));
