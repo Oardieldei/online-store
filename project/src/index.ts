@@ -4,4 +4,4 @@ import { sortItemArray } from './conponents/sort';
 import products from './conponents/items/item-list';
 import { Item } from './types/types';
 
-console.log(getFilteredItems([], [], [0, 1000, 0, 1000], '47'));
+console.log(getNamesForFilters('title'));

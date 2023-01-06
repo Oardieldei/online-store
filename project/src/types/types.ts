@@ -18,3 +18,9 @@ export interface Filter {
     fullCount: number;
     filterCount: number;
 }
+
+export interface CartItem {
+    item: Item;
+    count: number;
+    price: number;
+}

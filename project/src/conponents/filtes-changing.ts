@@ -1,9 +1,5 @@
 import { getNumbersForFilters } from './filters';
 
-// const categoryFilterChecked: string[] = [];						// массив с выбранными фильтрами категории
-// const brandFilterChecked: string[] = [];							// массив с выбранными фильтрами компаний
-// const inputFilterValue = '';													// переменная для строки поиска
-
 const defaultPriceArray: number[] = getNumbersForFilters('price');
 const defaultStockArray: number[] = getNumbersForFilters('stock');
 const numberFiltersArray: number[] = [
