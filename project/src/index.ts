@@ -1,3 +1,7 @@
 import { getFilteredItems } from './conponents/filtration';
 import { getNamesForFilters } from './conponents/filters';
-console.log(getFilteredItems(['smartphones'], [], [0, 1000, 0, 1000], ''));
+import { sortItemArray } from './conponents/sort';
+import products from './conponents/items/item-list';
+import { Item } from './types/types';
+
+console.log(sortItemArray(getFilteredItems(['smartphones'], [], [0, 1000, 0, 1000], '')[0] as Item[], 'price'));

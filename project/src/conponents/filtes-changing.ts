@@ -1,6 +1,3 @@
-import products from './items/item-list';
-import { Item } from '../types/types';
-import { getNamesForFilters } from './filters';
 import { getNumbersForFilters } from './filters';
 
 // const categoryFilterChecked: string[] = [];						// массив с выбранными фильтрами категории
