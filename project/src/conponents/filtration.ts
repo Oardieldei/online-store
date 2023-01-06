@@ -34,6 +34,9 @@ export const getFilteredItems = (
     const newFilterBrandsArr: Filter[] = [];
     const filterCategoryNamessArr: string[] = [];
     const newFilterCategoryArr: Filter[] = [];
+    const newNumbersArr: number[] = [];
+    const newPriceArr: number[] = [];
+    const newStockArr: number[] = [];
 
     newArr.forEach((element: Item) => {
         // считаем количество товаров по компаниям
@@ -59,8 +62,28 @@ export const getFilteredItems = (
                 }
             });
         }
+
+        // считаем мин и макс значения для ползунков
+        newArr.forEach((element: Item) => {
+            if (!newPriceArr.includes(element.price as number)) newPriceArr.push(element.price as number);
+        });
+        newPriceArr.sort((a, b) => {
+            return a > b ? 1 : b > a ? -1 : 0;
+        });
+        newArr.forEach((element: Item) => {
+            if (!newStockArr.includes(element.stock as number)) newStockArr.push(element.stock as number);
+        });
+        newStockArr.sort((a, b) => {
+            return a > b ? 1 : b > a ? -1 : 0;
+        });
     });
 
-    return [newArr, newFilterBrandsArr, newFilterCategoryArr]; // где newArr — массив с отфильтрованными товарами,
+    newNumbersArr.push(newPriceArr[0]);
+    newNumbersArr.push(newPriceArr[newPriceArr.length - 1]);
+    newNumbersArr.push(newStockArr[0]);
+    newNumbersArr.push(newStockArr[newStockArr.length - 1]);
+
+    return [newArr, newFilterBrandsArr, newFilterCategoryArr, newNumbersArr]; // где newArr — массив с отфильтрованными товарами,
     // остальные — массивы со счетчиками [{name: имя_фильтра, filterCount: количество_товаров, fullCount: чтоб новый интерфейс не писать}]
+		// и такой же массив с числами уже для отфильтрованного: [0] - мин цена, [1] - макс цена, [2] - мин на складе, [3] - макс на складе
 };
