@@ -4,4 +4,4 @@ import { sortItemArray } from './conponents/sort';
 import products from './conponents/items/item-list';
 import { Item } from './types/types';
 
-console.log(sortItemArray(getFilteredItems(['smartphones'], [], [0, 1000, 0, 1000], '')[0] as Item[], 'price'));
+console.log(getFilteredItems([], [], [0, 1000, 0, 1000], '47'));

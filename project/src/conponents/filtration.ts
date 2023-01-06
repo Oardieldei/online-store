@@ -19,12 +19,22 @@ export const getFilteredItems = (
         const brandLower: string = element.brand.toLowerCase();
         const categoryLower: string = element.category.toLowerCase();
         const inputLower: string = inputValue.toLowerCase(); // хуй знает, почему не работает в строке, пришлось добавить переменные
+
+        const priceString = String(element.price);
+        const discountString = String(element.discountPercentage);
+        const ratingString = String(element.rating);
+        const stockString = String(element.stock); // преобразование чисел в строки для сравнения со строкой поиска
+
         const isInputTrue: boolean =
             inputValue === '' || // пустое значение
             titleLower.search(inputLower) !== -1 || // ИЛИ слово есть в названии товара
             descriptionLower.search(inputLower) !== -1 || // ИЛИ слово есть в описании
             brandLower.search(inputLower) !== -1 || // ИЛИ слово есть в названии компании
-            categoryLower.search(inputLower) !== -1; // ИЛИ слово есть в категории
+            categoryLower.search(inputLower) !== -1 || // ИЛИ слово есть в категории
+            priceString.search(inputLower) !== -1 || // ИЛИ аналогично для чисел
+            discountString.search(inputLower) !== -1 ||
+            ratingString.search(inputLower) !== -1 ||
+            stockString.search(inputLower) !== -1;
 
         return isCategoryTrue && isBrandTrue && isPriceTrue && isStockTrue && isInputTrue; // оставляем только те товары, которые подходят по всем пунктам
     });
