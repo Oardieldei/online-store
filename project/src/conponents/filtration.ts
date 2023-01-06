@@ -4,17 +4,14 @@ import { Item } from '../types/types';
 export const getFilteredItems = (
     categoryCheckedArray: string[],
     brandChechedArray: string[],
-    minPrice: number,
-    maxPrice: number,
-    minStock: number,
-    maxStock: number,
+		numbersArray: number[],
     inputValue: string
 ) => {
     const newArr: Item[] = products.filter((element: Item) => {
         const isCategoryTrue: boolean = !categoryCheckedArray[0] || categoryCheckedArray.includes(element.category);
         const isBrandTrue: boolean = !brandChechedArray[0] || brandChechedArray.includes(element.brand);
-        const isPriceTrue: boolean = element.price >= minPrice && element.price <= maxPrice;
-        const isStockTrue: boolean = element.stock >= minStock && element.stock <= maxStock;
+        const isPriceTrue: boolean = element.price >= numbersArray[0] && element.price <= numbersArray[1];
+        const isStockTrue: boolean = element.stock >= numbersArray[2] && element.stock <= numbersArray[3];
 
         const titleLower: string = element.title.toLowerCase();
         const descriptionLower: string = element.description.toLowerCase();
