@@ -14,7 +14,7 @@ export interface Item {
 }
 
 export interface Filter {
-    [key: string]: string | number;
     name: string;
     fullCount: number;
+    filterCount: number;
 }

@@ -1,3 +1,3 @@
 import { getFilteredItems } from './conponents/filtration';
 import { getNamesForFilters } from './conponents/filters';
-console.log(getNamesForFilters('category'));
+console.log(getFilteredItems(['smartphones'], [], [0, 1000, 0, 1000], ''));

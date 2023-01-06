@@ -9,10 +9,13 @@ export const getNamesForFilters = (filterParameter: string) => {
     products.forEach((element: Item) => {
         if (!namesArr.includes(element[filterParameter] as string)) {
             namesArr.push(element[filterParameter] as string);
-            newArr.push({ name: element[filterParameter] as string, fullCount: 1 });
+            newArr.push({ name: element[filterParameter] as string, fullCount: 1, filterCount: 1 });
         } else {
             newArr.forEach((el) => {
-                if (el.name === element[filterParameter]) el.fullCount++;
+                if (el.name === element[filterParameter]) {
+                    el.fullCount++;
+                    el.filterCount++;
+                }
             });
         }
     });
@@ -20,7 +23,7 @@ export const getNamesForFilters = (filterParameter: string) => {
     return newArr;
 };
 
-// собираем цену 'price' / количество на складе 'stock' и получаем: отсортированный массив с уникальными значениями,  
+// собираем цену 'price' / количество на складе 'stock' и получаем: отсортированный массив с уникальными значениями,
 // т.е. 1 элемент — минимальное значение, последний — максимальное, length массива — количество вариантов
 export const getNumbersForFilters = (filterParameter: string) => {
     const newArr: number[] = [];
