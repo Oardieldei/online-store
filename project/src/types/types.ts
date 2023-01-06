@@ -12,3 +12,9 @@ export interface Item {
     thumbnail: string;
     images: string[];
 }
+
+export interface Filter {
+    [key: string]: string | number;
+    name: string;
+    fullCount: number;
+}

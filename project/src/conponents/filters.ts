@@ -1,10 +1,19 @@
 import products from './items/item-list';
 import { Item } from '../types/types';
+import { Filter } from '../types/types';
 
 export const getNamesForFilters = (filterParameter: string) => {
-    const newArr: string[] = [];
+    const namesArr: string[] = [];
+    const newArr: Filter[] = [];
     products.forEach((element: Item) => {
-        if (!newArr.includes(element[filterParameter] as string)) newArr.push(element[filterParameter] as string);
+        if (!namesArr.includes(element[filterParameter] as string)) {
+            namesArr.push(element[filterParameter] as string);
+            newArr.push({ name: element[filterParameter] as string, fullCount: 1 });
+        } else {
+            newArr.forEach((el) => {
+                if (el.name === element[filterParameter]) el.fullCount++;
+            });
+        }
     });
 
     return newArr;
