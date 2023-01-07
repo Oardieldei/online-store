@@ -1,6 +1,4 @@
 import { CartItem } from '../../types/types';
-import { Item } from '../../types/types';
-import products from '../../conponents/items/item-list';
 
 export const oneMore = (whatItem: CartItem) => {
     if (whatItem.count === whatItem.item.stock) {
