@@ -1,3 +1,4 @@
+import './style.css';
 import { getFilteredItems } from './conponents/filtration';
 import { getNamesForFilters } from './conponents/filters';
 import { sortItemArray } from './conponents/sort';
